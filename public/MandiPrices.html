@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kisan Shathi - Live Mandi Prices</title>
+    <link rel="icon" type="image/png" sizes="256x256" href="images/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style2.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <div class="d-flex justify-content-center logo-box">
+            <img src="images/logo.png" width="50" class="me-1" alt="">
+            <h1 class="align-self-center logo-name">Kisan shathi</h1>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link me-5 navbar-brand active-nav active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link me-5 navbar-brand" href="MandiPrices.html">Mandi Prices</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link me-5 navbar-brand" href="AiPredict.html">AI Predict</a>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn btn-success me-5"><a href="signUp.html" class="text-white text-decoration-none"  style="color: #144c17;">Sign Up</a></button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row mandi-prices-hero d-flex align-items-center justify-content-center">
+            <h1 class="text-center hero-head-mandi">Live Mandi Prices</h1>
+            <div class="line d-flex justify-content-center">
+              <hr class="border-2 border-success opacity-100 me-1" style="width : 15%">
+              <i class="bi bi-leaf-fill fs-5" style="color: #144c17;"></i>
+              <hr class="border-2 border-success opacity-100 ms-1" style="width : 15%">
+            </div>
+            <p class="text-center w-25 hero-content">Get real-time market rates for crop from different mandis across india.</p>
+        </div>
+        <section class="container my-5">
+            <div class="card border-0 shadow-lg rounded-4 p-4">
+                <div class="row g-3 align-items-end">
+
+                    <div class="col-md-3">
+                        <label class="form-label fw-semibold">Crop</label>
+                        <select id="crop" class="form-select search py-2" title="Select a crop">
+                            <option value="">Select Crop</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="form-label fw-semibold">State</label>
+                        <select id="state" class="form-select search py-2" title="Select a state">
+                            <option value="">Select State</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="form-label fw-semibold">Mandi</label>
+                        <select id="mandi" class="form-select search py-2" title="Select a mandi">
+                            <option value="">Select Mandi</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <button type="button" class="btn search-btn btn-success w-100 py-2 fw-semibold">
+                            <i class="bi bi-search me-2"></i>
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container my-5">
+
+          <div class="d-flex justify-content-between align-items-center mb-3">
+              <h2 class="fw-bold text-success">
+                  <i class="bi bi-bar-chart-fill me-2"></i>
+                  Live Mandi Prices
+              </h2>
+
+              <span class="text-muted">
+                  Updated: 21 June 2026
+              </span>
+          </div>
+
+          <div class="table-responsive shadow rounded-4">
+
+              <table class="table table-hover align-middle mb-0">
+
+                  <thead class="table-success">
+                      <tr>
+                          <th>Crop</th>
+                          <th>Mandi</th>
+                          <th>State</th>
+                          <th>Price (₹/Quintal)</th>
+                          <th>Change</th>
+                          <th>Trend</th>
+                      </tr>
+                  </thead>
+
+                  <tbody></tbody>
+
+              </table>
+
+          </div>
+
+          <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 mt-3">
+              <div class="btn-group" role="group" aria-label="Pagination controls">
+                  <button type="button" class="btn btn-outline-success" id="prev-page">Previous</button>
+                  <button type="button" class="btn btn-outline-success" id="next-page">Next</button>
+              </div>
+              <div class="text-muted" id="page-info">Page 1 of 1</div>
+              <div class="d-flex align-items-center gap-2">
+                  <label for="page-size" class="mb-0">Rows:</label>
+                  <select id="page-size" class="form-select form-select-sm" style="width: auto; min-width: 80px;">
+                      <option value="10">10</option>
+                      <option value="20" selected>20</option>
+                      <option value="50">50</option>
+                  </select>
+              </div>
+          </div>
+
+      </section>
+      <section class="container my-5">
+
+          <h2 class="fw-bold mb-4">
+              <i class="bi bi-stars text-warning me-2"></i>
+              Today's Highlights
+          </h2>
+
+          <div class="row g-4">
+
+              <!-- Highest Price -->
+              <div class="col-md-4">
+                  <div class="highlight-card highest h-100">
+
+                      <div class="icon-box">
+                          <i class="bi bi-graph-up-arrow"></i>
+                      </div>
+
+                      <h6>Highest Price</h6>
+
+                      <h3>Wheat</h3>
+
+                      <h4>₹ 2450</h4>
+
+                      <p>Kanpur Mandi</p>
+
+                  </div>
+              </div>
+
+              <!-- Lowest Price -->
+              <div class="col-md-4">
+                  <div class="highlight-card lowest h-100">
+
+                      <div class="icon-box">
+                          <i class="bi bi-graph-down-arrow"></i>
+                      </div>
+
+                      <h6>Lowest Price</h6>
+
+                      <h3>Potato</h3>
+
+                      <h4>₹ 1350</h4>
+
+                      <p>Meerut Mandi</p>
+
+                  </div>
+              </div>
+
+              <!-- Most Active -->
+              <div class="col-md-4">
+                  <div class="highlight-card active h-100">
+
+                      <div class="icon-box">
+                          <i class="bi bi-fire"></i>
+                      </div>
+
+                      <h6>Most Active Crop</h6>
+
+                      <h3>Maize</h3>
+
+                      <h4>+12.5%</h4>
+
+                      <p>Highest Demand Today</p>
+
+                  </div>
+              </div>
+
+          </div>
+
+      </section>
+      <section class="container py-5">
+
+          <div class="row g-4">
+
+              <!-- Card 1 -->
+              <div class="col-lg-3 col-md-6">
+                  <div class="feature-card h-100 text-center">
+
+                      <div class="icon-box">
+                          <i class="bi bi-bar-chart-line-fill"></i>
+                      </div>
+
+                      <h4>Mandi Prices</h4>
+
+                      <p>
+                          View live crop prices from
+                          multiple mandis instantly.
+                      </p>
+
+                  </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="col-lg-3 col-md-6">
+                  <div class="feature-card h-100 text-center">
+
+                      <div class="icon-box">
+                          <i class="bi bi-robot"></i>
+                      </div>
+
+                      <h4>AI Prediction</h4>
+
+                      <p>
+                          Forecast future prices using
+                          advanced AI technology.
+                      </p>
+
+                  </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="col-lg-3 col-md-6">
+                  <div class="feature-card h-100 text-center">
+
+                      <div class="icon-box">
+                          <i class="bi bi-tree-fill"></i>
+                      </div>
+
+                      <h4>Multiple Crops</h4>
+
+                      <p>
+                          Monitor different crops from
+                          a single dashboard easily.
+                      </p>
+
+                  </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="col-lg-3 col-md-6">
+                  <div class="feature-card h-100 text-center">
+
+                      <div class="icon-box">
+                          <i class="bi bi-bell-fill"></i>
+                      </div>
+
+                      <h4>Price Alerts</h4>
+
+                      <p>
+                          Get notified whenever crop
+                          prices reach your target.
+                      </p>
+
+                  </div>
+              </div>
+
+          </div>
+
+      </section>
+    <div class="row mt-5 d-flex justify-content-evenly footer">
+            <div class="col-md-3 col-10 mt-5 align-items-center justify-content-center">
+              <div class="logo d-flex">
+                <img src="images/logo.png" class="img-fluid me-2" width="55" alt="">
+                <h1 class="navbar-brand text-white nav-txt pt-3" style="font-size: 1.5rem; font-family: 'cinzel';">Kisan shathi</h1>
+              </div>
+              <div class="information text-white">
+                <h5>Contact information</h5>
+                <p>Address :- Sarai sekh, Etawah</p>
+                <div class="number d-flex">
+                  <i class="bi bi-telephone-inbound-fill"></i>
+                  <p class="ms-2">Phone :- 9854785245</p>
+                </div>
+              </div>
+          </div>
+          <div class="col-md-3 col-10 mt-5 text-white">
+            <h5>Quick Links</h5>
+            <ul>
+              <li class="mt-2"><a href="index.html" class="text-decoration-none text-white">Home</a></li>
+              <li class="mt-2" ><a href="index.html" class="text-decoration-none text-white">Mandi Prices</a></li>
+              <li class="mt-2" ><a href="AiPredict.html" class="text-decoration-none text-white">Ai Predict</a></li>
+              <li class="mt-2" ><a href="signUp.html" class="text-decoration-none text-white">Sign Up</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-10 mt-5 text-white">
+            <h5>Follow Us On . . .</h5>
+            <ul>
+              <li class="d-flex">
+                <i class="bi bi-instagram"></i>
+                <p class="ms-2">Instagram</p>
+              </li>
+              <li class="d-flex">
+                <i class="bi bi-facebook"></i>
+                <p class="ms-2">Facebook</p>
+                <li class="d-flex">
+                  <i class="bi bi-youtube"></i>
+                  <p class="ms-2">Youtube</p>
+                </li>
+                <li class="d-flex">
+                  <i class="bi bi-twitter"></i>
+                  <p class="ms-2">Twitter</p>
+                </li>
+              </li>
+            </ul>
+          </div>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="script-mandi.js"></script>
+  </body>
+</html>

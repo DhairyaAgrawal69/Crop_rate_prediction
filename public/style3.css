@@ -1,0 +1,35 @@
+
+.ai-predict-hero{
+    background-image: url('images/hero-ai-predict.png');
+    background-size: cover;
+    height: 35vh;
+    background-position: 55% 55%;
+}
+.hero-head-ai{
+    margin: 0px !important;
+    font-family: 'cinzel' , serif;
+    color : #19511c;
+}
+.icon-box{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #19511c;
+}
+.option{
+    border : 1px solid rgba(23, 97, 10,0.15);
+    box-shadow: 0 0 2rem rgba(23, 97, 10,0.25);
+    background-color: white;
+    height : 300px;
+    padding: 1rem;
+}
+.option:hover{
+    scale: calc(1.02);
+}
+.option .icon:hover{
+    scale: calc(1.2);
+}

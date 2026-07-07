@@ -1,0 +1,194 @@
+*{
+    box-sizing: border-box;
+    font-family: Verdana, sans-serif;
+}
+body{
+    background-color: #f8fdf8;
+    color: #1f3d1f;
+}
+.logo-name{
+    font-family: 'cinzel', serif;
+    margin: 0;
+    color: #2E7D32;
+    font-size: 2rem;
+}
+.navbar{
+    background: #FFFFFF !important;
+    border-bottom: 1px solid #E8F5E9 !important;
+}
+.nav-link{
+    color: #285d2a !important;
+}
+.active-nav{
+    color: #19511c !important;
+    font-weight: 700;
+}
+.hero{
+    background-image: url('images/hero.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 72vh;
+    padding: 2rem 0;
+}
+.hero-content{
+    max-width: 640px;
+    padding: 2rem;
+    border-radius: 24px;
+    background: rgba(255,255,255,0.82);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 12px 30px rgba(20,76,23,0.08);
+}
+.hero-pill{
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    margin-bottom: 0.9rem;
+    border-radius: 999px;
+    background: #eaf7ea;
+    color: #2e7d32;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+.hero-head{
+    font-size: clamp(2rem, 3.4vw, 3.2rem);
+    font-family: 'cinzel', serif;
+    color: #144c17;
+    margin: 0 0 0.5rem;
+}
+.hero-subtitle{
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #396839;
+    max-width: 560px;
+}
+.hero-actions a{
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 0.8rem 1.15rem;
+}
+button:hover,
+.hero-actions a:hover{
+    transform: translateY(-2px);
+    transition: transform 0.2s ease;
+}
+.avatar-circle{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e7d32, #6fcf97);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(46,125,50,0.18);
+}
+.dropdown-menu{
+    border: none;
+    border-radius: 14px;
+}
+.dropdown-item:hover{
+    background-color: #f2f9f2;
+}
+.box{
+    min-height: 270px;
+    background: #ffffff;
+    border: 1px solid #E8F5E9;
+    border-radius: 24px;
+    padding: 35px 25px;
+    box-shadow: 0 10px 25px rgba(46,125,50,0.12);
+    transition: all 0.3s ease;
+}
+.third-section{
+    background-color: #f3f7f2;
+    padding: 2rem 0 3rem;
+}
+.box:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(46,125,50,0.16);
+}
+.fourth-section{
+    background-image: url('images/last-section-home.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 220px;
+    padding: 1.5rem;
+}
+.footer{
+    background-color: #016806;
+    padding: 2rem 0 2.5rem;
+}
+@media (min-width : 1000px){
+    .box{
+        width : 20%;
+    }
+}
+@media (min-width : 768px) and (max-width : 999px) {
+    .box{
+        width : 24%;
+    }
+}
+@media (max-width : 1000px){
+    .hero{
+        min-height: 78vh;
+        width: 100%;
+    }
+    .fourth-section p{
+        width: 75% !important;
+    }
+    .fourth-section button{
+        display: none;
+    }
+}
+@media (max-width : 650px){
+    .hero{
+        min-height: 74vh;
+    }
+    .hero-content{
+        margin-left: 1rem !important;
+        padding: 1.3rem;
+    }
+    .hero-head{
+        font-size: 2rem;
+    }
+    .hero-subtitle{
+        font-size: 0.95rem !important;
+    }
+    .hero-actions a{
+        font-size: 0.8rem;
+    }
+    .fourth-section h4{
+        font-size: 1.1rem !important;
+    }
+    .fourth-section p{
+        font-size: 0.9rem !important;
+    }
+}
+@media (max-width : 480px){
+    .hero-content > p{
+        text-align: center;
+        width: 80% !important;
+    }
+    .hero-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .logo-name{
+        font-size: 1.5rem;
+    }
+    .logo-box img{
+        width : 40px;
+    }
+    .fourth-section h4{
+        font-size: 0.8rem !important;
+    }
+    .fourth-section p{
+        font-size: 0.7rem !important;
+    }
+}
+
